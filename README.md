@@ -1,22 +1,15 @@
-# Next.js Framework Starter
+Next.js 15, React 19, Tailwind CSS v4, and Motion using [Nim](https://nim-fawn.vercel.app) template.
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/next-starter-template)
+## Features
 
-<!-- dash-content-start -->
+- Minimal one-page portfolio layout.
+- Blog support with MDX.
+- Responsive and accessible design.
+- Easy to use
+- [Motion-Primitives](https://motion-primitives.com) for animated components.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It's deployed on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
 
-This template uses [OpenNext](https://opennext.js.org/) via the [OpenNext Cloudflare adapter](https://opennext.js.org/cloudflare), which works by taking the Next.js build output and transforming it, so that it can run in Cloudflare Workers.
-
-<!-- dash-content-end -->
-
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
-
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/next-starter-template
-```
-
-A live public deployment of this template is available at [https://next-starter-template.templates.workers.dev](https://next-starter-template.templates.workers.dev)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Getting Started
 
@@ -24,12 +17,6 @@ First, run:
 
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
 ```
 
 Then run the development server (using the package manager of your choice):
