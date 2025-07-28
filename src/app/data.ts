@@ -2,7 +2,7 @@ type Project = {
   name: string
   description: string
   link: string
-  video: string
+  images: string[]
   id: string
 }
 
@@ -28,23 +28,25 @@ type SocialLink = {
 }
 
 export const PROJECTS: Project[] = [
-  // {
-  //   name: 'Motion Primitives Pro',
-  //   description:
-  //     'Advanced components and templates to craft beautiful websites.',
-  //   link: 'https://pro.motion-primitives.com/',
-  //   video:
-  //     'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
-  //   id: 'project1',
-  // },
-  // {
-  //   name: 'Motion Primitives',
-  //   description: 'UI kit to make beautiful, animated interfaces.',
-  //   link: 'https://motion-primitives.com/',
-  //   video:
-  //     'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
-  //   id: 'project2',
-  // },
+  {
+    name: 'Projects at Hearst',
+    description:
+      'Showcasing various projects developed during my time at Hearst.',
+    link: '/work/hearst',
+    images: ['/home-car-finder.png','/make-page-car-finder.png','/mega-menu-car-finder.png', '/car-insurance-widget.png'],
+    // video:
+    //   'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    id: 'project1',
+  },
+  {
+    name: 'Projects at MacGraw-Hill Education',
+    description: 'showcasing various projects developed during my time at MacGraw-Hill Education.',
+    link: '/work/mcgraw-hill-education',
+    images: ['/aleks-instructor-module-small.jpeg','/aleks-student-module-small.jpeg'],
+    // video:
+    //   'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    id: 'project2',
+  },
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
@@ -53,15 +55,15 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Senior Software Engineer',
     start: '2021',
     end: 'Present',
-    link: 'projects/hearst',
+    link: 'work/hearst',
     id: 'work1',
   },
   {
-    company: 'McGraw Hill Education',
+    company: 'McGraw-Hill Education',
     title: 'Software Engineer',
     start: '2015',
     end: '2021',
-    link: 'projects/mcgraw-hill-education',
+    link: 'work/mcgraw-hill-education',
     id: 'work2',
   },
   {
@@ -69,7 +71,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'Avago Tech. (now Broadcom) ',
     start: '2011',
     end: '2015',
-    link: 'projects/avago-tech',
+    link: 'work/avago-tech',
     id: 'work3',
   },
 ]

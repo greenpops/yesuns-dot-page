@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
+import { CarouselBasic } from '@/components/ui/carousel-basic';
 import {
   PROJECTS,
   WORK_EXPERIENCE,
@@ -148,11 +149,12 @@ export default function Personal() {
         transition={TRANSITION_SECTION}
       >
         <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="flex flex-col gap-6">
           {PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
               <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
+                {/* <ProjectVideo src={project.video} /> */}
+                <CarouselBasic images={project.images} />
               </div>
               <div className="px-1">
                 <a
