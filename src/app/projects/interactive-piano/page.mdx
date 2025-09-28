@@ -1,0 +1,39 @@
+import Piano from '@/components/ui/piano';
+
+export const metadata = {
+  title: 'Personal Project for my kid',
+  description:
+    'Interactive Piano for my kid',
+  alternates: {
+    canonical: '/projects/interactive-piano', 
+  },
+};
+
+export default function Home() {
+    return (
+        <div className="min-h-screen flex flex-col pt-8 pb-8 items-center">
+            <h1 className="text-3xl font-bold mb-8">Short Keyboard</h1>
+            
+            <div className="max-w-2xl mx-auto mb-8 text-center">
+                <p className="text-lg mb-4">
+                    This interactive piano was created as a fun learning project for my child. 
+                    Built with React and the Web Audio API, it features playable piano keys 
+                    spanning three octaves with realistic sounds.
+                </p>
+                <p className="mb-4">
+                    Try clicking the keys or using the song buttons below!
+                </p>
+                <a 
+                    href="/blog/building-an-interactive-piano-component-with-react" 
+                    className="text-blue-600 hover:text-blue-800 underline"
+                >
+                    Read the blog post about how this was built →
+                </a>
+            </div>
+            
+            <div className="bg-white w-screen p-8 rounded-lg shadow-lg w-full">
+                <Piano />
+            </div>
+        </div>
+    )
+}

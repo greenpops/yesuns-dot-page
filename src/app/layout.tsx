@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     default: 'Yesun - Personal website',
     template: '%s | Yesun'
   },
-  description:  'Here is a f personal website built with Next.js 15, React 19 and Motion-Primitives.',
+  description:  'Here is a personal website.',
 };
 
 const geist = Geist({
