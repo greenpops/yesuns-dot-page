@@ -1,0 +1,116 @@
+# Building an Interactive Piano Component with React
+
+This React component creates an interactive virtual piano with the following features:
+
+## Core Functionality
+
+- Renders a keyboard with notes spanning 3 octaves (3-5)
+- Generates piano-like sounds using Web Audio API
+- Allows both mouse/touch and keyboard interaction
+- Includes pre-programmed songs that can be played automatically
+
+
+## Technical Implementation
+
+First, we set up the basic piano structure with our required imports and constants:
+<pre>
+```tsx
+import { useState, useCallback } from "react"
+import { motion } from "framer-motion"
+import PianoKey from "./pianoKey"
+import { happinessAnthem, happyBirthday } from "@/lib/songs"
+
+const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+const octaves = [3, 4, 5]
+const audioContext =
+  typeof window !== "undefined" ? new (window.AudioContext || (window as any).webkitAudioContext)() : null
+```
+</pre>
+
+- Uses framer-motion for animations and visual feedback
+- Generates audio with oscillators, gain nodes and dynamic compression
+
+
+For accurate sound generation, we calculate note frequencies using equal temperament tuning:
+<pre>
+```tsx
+// Piano note frequencies (A4 = 440Hz as reference)
+const getFrequency = (note: string) => {
+  const [noteName, octaveStr] = [note.slice(0, -1), note.slice(-1)]
+  const octave = Number.parseInt(octaveStr)
+
+  if (isNaN(octave)) return 440 // Return A4 as fallback
+
+  const noteIndex = notes.indexOf(noteName)
+  if (noteIndex === -1) return 440 // Return A4 as fallback
+
+  // Calculate semitones from A4 (A4 = 440Hz)
+  const A4Index = notes.indexOf("A")
+  const semitonesDiff = noteIndex - A4Index + (octave - 4) * 12
+
+  // Calculate frequency using equal temperament formula
+  return 440 * Math.pow(2, semitonesDiff / 12)
+}
+```
+</pre>
+
+- Calculates note frequencies mathematically (equal temperament tuning)
+- Shows visual feedback when keys are pressed
+
+We implement a song playback system that can play any array of notes with customizable speed:
+<pre>
+```tsx
+const playSong = useCallback(
+  (song: string[], speed = 200) => {
+    setIsPlaying(true)
+    setCurrentSong(song)
+    
+    song.forEach((note, index) => {
+      setTimeout(() => {
+        if (note !== " ") playNote(note)
+        if (index === song.length - 1) {
+          setIsPlaying(false)
+          setCurrentSong([])
+        }
+      }, index * speed)
+    })
+  },
+  [playNote],
+)
+```
+</pre>
+
+Finally, we render the piano keyboard with the appropriate UI elements:
+
+<pre>
+```tsx
+return (
+  <div className="w-full flex flex-col items-center space-y-4">
+    <div className="w-full flex flex-wrap justify-center">
+      {octaves.map((octave) =>
+        notes.map((note) => (
+          <PianoKey
+            key={`${note}${octave}`}
+            note={`${note}${octave}`}
+            isActive={activeKeys.includes(`${note}${octave}`)}
+            onClick={() => playNote(`${note}${octave}`)}
+            isSharp={note.includes("#")}
+          />
+        )),
+      )}
+    </div>
+    
+    {/* Play buttons and status indicators */}
+  </div>
+))
+```
+</pre>
+
+## User Experience
+
+- Keys light up when played (green animation)
+- Multiple songs available via button controls
+- Shows "Now Playing" status during song playback
+- Responsive layout that works across device sizes
+
+The component combines audio synthesis, visual feedback, and interactivity to create an engaging musical experience.
