@@ -13,7 +13,6 @@ This React component creates an interactive virtual piano with the following fea
 ## Technical Implementation
 
 First, we set up the basic piano structure with our required imports and constants:
-<pre>
 ```tsx
 import { useState, useCallback } from "react"
 import { motion } from "framer-motion"
@@ -25,14 +24,12 @@ const octaves = [3, 4, 5]
 const audioContext =
   typeof window !== "undefined" ? new (window.AudioContext || (window as any).webkitAudioContext)() : null
 ```
-</pre>
 
 - Uses framer-motion for animations and visual feedback
 - Generates audio with oscillators, gain nodes and dynamic compression
 
 
 For accurate sound generation, we calculate note frequencies using equal temperament tuning:
-<pre>
 ```tsx
 // Piano note frequencies (A4 = 440Hz as reference)
 const getFrequency = (note: string) => {
@@ -52,13 +49,11 @@ const getFrequency = (note: string) => {
   return 440 * Math.pow(2, semitonesDiff / 12)
 }
 ```
-</pre>
 
 - Calculates note frequencies mathematically (equal temperament tuning)
 - Shows visual feedback when keys are pressed
 
 We implement a song playback system that can play any array of notes with customizable speed:
-<pre>
 ```tsx
 const playSong = useCallback(
   (song: string[], speed = 200) => {
@@ -78,11 +73,9 @@ const playSong = useCallback(
   [playNote],
 )
 ```
-</pre>
 
 Finally, we render the piano keyboard with the appropriate UI elements:
 
-<pre>
 ```tsx
 return (
   <div className="w-full flex flex-col items-center space-y-4">
@@ -104,7 +97,6 @@ return (
   </div>
 ))
 ```
-</pre>
 
 ## User Experience
 
