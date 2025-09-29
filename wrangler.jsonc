@@ -14,5 +14,9 @@
   "observability": {
     "enabled": true
   },
-  "upload_source_maps": true
+  "upload_source_maps": true,
+  "vars": {
+    "NEXT_MANUAL_TRAILING_SLASH": "false",
+    "NEXT_DISABLE_INSTRUMENTATION": "true"
+  }  
 }
